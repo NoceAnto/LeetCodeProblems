@@ -27,12 +27,5 @@ class Solution:
         
         backtrack([])
 
-        
-        result = [];
-
-        #for i in range(0,len(output)): 
-        #    if sum(output[i])!=0:
-        #        result.append(output[i]) 
-
 
         return output 
