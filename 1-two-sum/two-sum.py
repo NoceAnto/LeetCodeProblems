@@ -7,10 +7,8 @@ class Solution:
 
         for i in range(0,len(nums)): 
 
-            needed = target-nums[i];
-
-            if needed in two_sum_dict.keys():
-                return [two_sum_dict[needed],i]
+            if target-nums[i] in two_sum_dict.keys():
+                return [two_sum_dict[target-nums[i]],i]
 
             #seen.add(nums[i]);
             two_sum_dict[nums[i]] = i; 
