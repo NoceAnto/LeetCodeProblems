@@ -3,14 +3,21 @@ class Solution:
         
         steps = 0; 
 
-        while num!=0:
+        def backtrack(current,steps):
 
-            if num%2 == 0:
-                num = num/2; 
-                steps = steps +1; 
+            if current == 0:
+                return steps 
+            
+            if current%2 == 0:
+                steps = backtrack(current/2,steps+1)
             else: 
-                num = num - 1; 
-                steps = steps +1; 
+                steps = backtrack(current-1,steps+1)
+            
+            return steps
+        
+        steps = backtrack(num,0)
+
+
         
         return steps
                 
