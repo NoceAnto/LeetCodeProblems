@@ -4,12 +4,11 @@ class Solution:
         output = sum(nums[0:3]);
 
         for i in range(0,len(nums)): # fix a number 
-            x = nums[i]; 
 
             j = i+1; 
             k = len(nums)-1; 
             while j < k: 
-                thisoutput = x + nums[j] + nums[k];
+                thisoutput = nums[i] + nums[j] + nums[k];
 
                 if abs(thisoutput-target) < abs(output-target):
                     output = thisoutput; 
