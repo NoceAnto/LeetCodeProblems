@@ -3,12 +3,16 @@ class Solution:
         
         output = 0; 
         N = len(nums);
-        for i in range(0,N-2): 
 
-            firstnum = nums[i]; 
-            #print(set(nums[i+1:N]))
-            if firstnum+diff in set(nums[i+1:N]) and firstnum+2*diff in set(nums[i+1:N]): 
-                output = output + 1; 
+        seen = set();
+        for i in range(0,N): 
+
+            lastnum = nums[i]; 
+            
+            if lastnum-diff in seen and lastnum-2*diff in seen: 
+                output = output +1; 
+
+            seen.add(lastnum)
 
 
         return output 
