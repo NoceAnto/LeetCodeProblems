@@ -1,25 +1,20 @@
 class Solution:
     def dailyTemperatures(self, temperatures: list[int]) -> list[int]:
 
-        output = [0]*len(temperatures); 
-        stack = [];        
-        for i in range(1,len(temperatures)): 
+        n = len(temperatures)
+        answer = [0] * n
+        stack = []  # stores indices
 
-            #print(stack,output)
+        for i, temp in enumerate(temperatures):
+            
+            # if stack is not empty and this temp is higher than last recorded temp (stack[-1])
+            while stack and temperatures[stack[-1]] < temp:
+                prev = stack.pop() 
+                answer[prev] = i - prev
 
-            if temperatures[i-1]<temperatures[i]: 
-                output[i-1] = 1; 
+            stack.append(i)
 
-                if len(stack)!=0: 
-                    N = len(stack);
-                    for j in range(0,N):
-                        if temperatures[stack[N-1-j]]<temperatures[i]:
-                            output[stack[N-1-j]] = i-stack[N-1-j];
-                            stack.pop(N-1-j)
-                        else:
-                            break;
-            else: 
-                stack.append(i-1)
+        return answer
 
             
 
