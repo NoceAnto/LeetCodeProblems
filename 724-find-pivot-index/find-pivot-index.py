@@ -3,14 +3,12 @@ class Solution:
         
         prefixsum = [0];
         N = len(nums);
-        #print(N)
-
-        for i in range(0,N):
-            prefixsum.append(prefixsum[-1]+nums[i]);
+        allsum = sum(nums);
 
         for j in range(0,N):
+            prefixsum.append(prefixsum[-1]+nums[j]);
 
-            if (prefixsum[-1]-nums[j])/2 == prefixsum[j]:
+            if (allsum-nums[j])/2 == prefixsum[j]:
                 return j
         
 
