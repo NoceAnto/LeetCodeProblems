@@ -2,7 +2,6 @@ class Solution:
     def increasingTriplet(self, nums: list[int]) -> bool:
         first = float('inf');
         second = float('inf')
-        secondfound = False; 
 
         for x in nums: 
             #print(x)
