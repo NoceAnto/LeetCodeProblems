@@ -1,25 +1,22 @@
 class Solution:
     def increasingTriplet(self, nums: list[int]) -> bool:
-        first = nums[0]; 
+        first = float('inf');
+        second = float('inf')
         secondfound = False; 
 
-        for i in range(1,len(nums)): 
+        for i in range(0,len(nums)): 
 
-            temp = nums[i];
-
-            if temp<first: 
-                first = temp; 
-            
-            if not(secondfound): 
-                if temp>first: 
-                    second = temp; 
-                    secondfound = True; 
-            else: 
-                if temp>first and temp<second: 
-                    second = temp;  
-
-                if temp>first and temp>second:
-                    return True
+            x = nums[i];
+            print(x)
+            if x <= first:
+                first = x
+                #print(f"{x} first ")
+            elif x <= second:
+                second = x
+                #print(f"{x} second ")
+            else:
+                #print(f"{x} third ")
+                return True
 
 
              
