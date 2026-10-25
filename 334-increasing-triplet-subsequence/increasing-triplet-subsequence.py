@@ -4,9 +4,7 @@ class Solution:
         second = float('inf')
         secondfound = False; 
 
-        for i in range(0,len(nums)): 
-
-            x = nums[i];
+        for x in nums: 
             #print(x)
             if x <= first:
                 first = x
