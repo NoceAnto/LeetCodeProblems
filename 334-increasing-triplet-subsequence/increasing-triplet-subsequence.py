@@ -7,7 +7,7 @@ class Solution:
         for i in range(0,len(nums)): 
 
             x = nums[i];
-            print(x)
+            #print(x)
             if x <= first:
                 first = x
                 #print(f"{x} first ")
@@ -17,11 +17,6 @@ class Solution:
             else:
                 #print(f"{x} third ")
                 return True
-
-
-             
-
-        
 
         return False
 
