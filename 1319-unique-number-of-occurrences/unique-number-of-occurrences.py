@@ -4,10 +4,7 @@ class Solution:
         unique_val_dict = {}
 
         for a in arr: 
-            if a in unique_val_dict.keys():
-                unique_val_dict[a]+=1; 
-            else: 
-                unique_val_dict[a]=0; 
+            unique_val_dict[a] = unique_val_dict.get(a,0)+1
         
         
         return len(unique_val_dict.values())==len(set(unique_val_dict.values()))
