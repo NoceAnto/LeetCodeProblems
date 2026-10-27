@@ -37,9 +37,10 @@ class Solution:
             counter = 0; 
             #print(read,write)
 
-        while write < len(chars): 
-            chars.pop(write)
+        #while write < len(chars): 
+        #    chars.pop(write)
+        #    write = write + 1
 
-        return len(chars)
+        return write
                  
                          
