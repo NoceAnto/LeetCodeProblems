@@ -1,54 +1,45 @@
 class Solution:
     def compress(self,chars: list[str]) -> int:
-        i=0; 
-        s = "";
-
-        def num2chars(n):
-            ans = []; 
-            while n >0:
-                ans.insert(0,n%10)
-                n = n//10; 
-            
-            return ans 
-
+    
+        read = 0; 
+        write = 0;
         counter = 0; 
 
-        while i<len(chars):
-            
-            c = chars[i]; 
-            j = i;
-            #print(f"Index i {i} has char {c}")
-            #print("checking for multiple")
-            while j<len(chars):
-                if c == chars[j]:
-                    chars.pop(j)
+        while read<len(chars): 
+            c = chars[read]
+            #print(f"Read character {c} at position {read}")
+            #print("... checking repetitions")
+
+            while read<len(chars):
+                if c == chars[read]:
                     counter = counter+1; 
-                    #j=j+1;
+                    read = read +1; 
                 else: 
-                    print('w')
                     break; 
 
-            #print(f"there are {counter} repetitions of {c}")
+            #print(f"There are {counter} repetitions of character {c}")
+            
+            if counter > 1:
+                chars[write] = c; 
+                #print(f"Write character {c} at position {write}")
+
+                write = write + 1; 
+                for nc in list(str(counter)): 
+                    chars[write] = nc; 
+                    #print(f"Write character {nc} at position {write}")
+                    write = write +1; 
             
             if counter == 1: 
-                s = s + str(c); 
-                chars.insert(i,c)
-
-                i = i +1; 
+                chars[write] = c; 
+                #print(f"Write character {c} at position {write}")
+                write = write +1; 
             
-            if counter>1: 
-                s = s +str(c)+str(counter); 
-                chars.insert(i,c)
-                i=i+1;
-
-                numchars = num2chars(counter); 
-
-                for k in numchars:
-                    chars.insert(i,str(k))
-                    i = i +1;
-
-            #print("chars: "+str(chars))
-            #print("compressed string: "+s)
             counter = 0; 
+            #print(read,write)
 
-        return len(s)
+        while write < len(chars): 
+            chars.pop(write)
+
+        return len(chars)
+                 
+                         
