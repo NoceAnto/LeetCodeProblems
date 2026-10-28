@@ -8,24 +8,16 @@
 class Solution:
     def guessNumber(self, n: int) -> int:
 
-        high = n; 
         low = 1; 
         while True:
-            #check low and high 
 
-            #if guess(low)==0:
-            #    return low 
-            #if guess(high)==0:
-            #    return high 
-
-            guessed_num = low + floor((high-low)/2);
-            #print(guessed_num)
+            guessed_num = low + floor((n-low)/2);
 
             if guess(guessed_num)==1: 
                 low = guessed_num+1; 
             
             elif guess(guessed_num)==-1:
-                high = guessed_num-1; 
+                n = guessed_num-1; 
             else: 
                 return guessed_num 
 
