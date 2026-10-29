@@ -23,11 +23,10 @@ class Solution:
             if counter <= h: 
                 if minspeed>speed: 
                     minspeed = speed; 
-            if counter > h: 
-                start = speed+1; 
-            else: 
                 end = speed-1; 
-
+            else: 
+                start = speed+1; 
+                
         return minspeed
 
 
