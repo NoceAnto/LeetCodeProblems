@@ -8,30 +8,26 @@ class Solution:
         
         if head == None: 
             return head
-        tail = head; 
-
-        val_list = [];
-        while tail and tail.next: 
-            val_list.append(tail.val)
-            tail = tail.next;
         
-        newhead = tail; 
+        prev = None
+        curr = head
 
-        for i in range(len(val_list)-1,-1,-1):
-            #print(i)
-            tail.next = ListNode(val_list[i])
-            #print(newhead)
-            #print(tail)
-            tail = tail.next;
+        while curr is not None:
 
+            # 1. Save the next node
+            next_node = curr.next
+
+            # 2. Reverse the current link
+            curr.next = prev
+
+            # 3. Advance prev
+            prev = curr; 
+
+            # 4. Advance curr
+            curr = next_node
         
-        tail.next = None
 
-        #print(newhead)
-
-        return newhead
-
-
+        return prev
 
 
             
