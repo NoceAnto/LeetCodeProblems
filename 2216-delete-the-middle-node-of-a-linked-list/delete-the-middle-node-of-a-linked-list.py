@@ -10,9 +10,6 @@ class Solution:
             head = None; 
             return head 
 
-        if head.next.next is None: 
-            head.next = None; 
-            return head 
         
         slow = head; 
         fast = head; 
@@ -23,12 +20,9 @@ class Solution:
             slow = slow.next; 
             fast = fast.next.next; 
 
-            #print(slow)
-            #print(fast)
-            #print(prev)
 
         
-        prev.next = prev.next.next; # eliminate middle node ?? 
+        prev.next = slow.next; # eliminate middle node ?? 
 
         return head 
 
