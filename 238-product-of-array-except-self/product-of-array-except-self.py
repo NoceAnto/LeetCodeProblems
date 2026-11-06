@@ -1,25 +1,30 @@
 class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
 
-        prefixsum = [nums[0]];
-        sufixsum = [nums[len(nums)-1]];
+        prefix = []; 
+        suffix = []; 
+        p = 1; 
+        for n in nums: 
+            p = p*n; 
+            prefix.append(p);
+        p = 1; 
 
-        for i in range(1,len(nums)):
+        for i in range(len(nums)-1,-1,-1): 
+            p = p * nums[i];
 
-            prefixsum.append(prefixsum[-1]*nums[i]);
-            sufixsum.append(sufixsum[-1]*nums[len(nums)-1-i]);
-        print(prefixsum,sufixsum)
+            suffix.append(p)
 
-        output = []; 
+        print(suffix,prefix)
 
-        for k in range(0,len(nums)):
-            if k == 0:
-                output.append(sufixsum[len(nums)-2])
-            elif k == len(nums)-1:
-                output.append(prefixsum[len(nums)-2])
+        output = [0]*len(nums);     
+        for j in range(0,len(nums)): 
+            if j == 0: 
+                output[j] = suffix[len(nums)-2]
+            elif j == len(nums)-1: 
+                output[j] = prefix[len(nums)-2]
             else:
-                output.append(prefixsum[k-1]*sufixsum[len(nums)-2-k])
+                output[j] = prefix[j-1]*suffix[len(nums)-j-2]
 
         return output 
-
-            
+                
+        
