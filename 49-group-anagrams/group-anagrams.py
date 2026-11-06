@@ -1,20 +1,21 @@
 class Solution:
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
         
-        anagram_dict ={}; 
+        group_anagram_dict = {}; 
 
-        i = 0; 
-        for s in strs:
+        for i,s in enumerate(strs): 
+            sorteds = "".join(sorted(s))
 
-            key = "".join(sorted(s)); 
-
-            if key in anagram_dict.keys(): 
-                anagram_dict[key].append(s)
+            if sorteds in group_anagram_dict.keys():
+                group_anagram_dict[sorteds].append(s)
             else: 
-                anagram_dict[key] = [s]; 
+                group_anagram_dict[sorteds] = [s]; 
 
 
+        output = [""]*len(group_anagram_dict.keys())
+        j = 0; 
+        for k in group_anagram_dict.keys(): 
+            output[j] = group_anagram_dict[k];
+            j = j +1; 
 
-            i = i +1; 
-
-        return list(anagram_dict.values())
+        return output 
